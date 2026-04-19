@@ -1,0 +1,59 @@
+// ══════════════════════════════════════════════════════
+//  HELPER FUNCTIONS
+// ══════════════════════════════════════════════════════
+
+export function getCatLabel(cat) {
+  const labels = {
+    'vi':        'Ví da',
+    'tui':       'Túi xách',
+    'op-lung':   'Ốp lưng',
+    'op-camera': 'Ốp camera',
+    'airpods':   'Hộp AirPods',
+    'day-lung':  'Dây lưng',
+    'phu-kien':  'Phụ kiện',
+  };
+  return labels[cat] || 'Sản phẩm';
+}
+
+export function formatPrice(p) {
+  return new Intl.NumberFormat('vi-VN').format(p) + ' ₫';
+}
+
+// ══════════════════════════════════════════════════════
+//  SVG ILLUSTRATIONS (theo category)
+// ══════════════════════════════════════════════════════
+export function getSVG(key, size = 160) {
+  const svgs = {
+    wallet:  `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><rect x="15" y="30" width="100" height="100" rx="5" fill="none" stroke="rgba(201,168,76,.28)" stroke-width="1.5"/><rect x="15" y="30" width="100" height="42" rx="5" fill="rgba(201,168,76,.08)" stroke="rgba(201,168,76,.18)" stroke-width=".7"/><line x1="15" y1="72" x2="115" y2="72" stroke="rgba(201,168,76,.14)" stroke-width=".7"/><rect x="26" y="82" width="36" height="30" rx="3" fill="rgba(201,168,76,.06)" stroke="rgba(201,168,76,.12)" stroke-width=".7"/><rect x="70" y="82" width="38" height="13" rx="2" fill="rgba(201,168,76,.05)"/><rect x="70" y="100" width="28" height="9" rx="2" fill="rgba(201,168,76,.04)"/><line x1="22" y1="38" x2="22" y2="124" stroke="rgba(201,168,76,.12)" stroke-width=".6" stroke-dasharray="4 3"/><line x1="108" y1="38" x2="108" y2="124" stroke="rgba(201,168,76,.12)" stroke-width=".6" stroke-dasharray="4 3"/><text x="65" y="155" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(201,168,76,.2)" letter-spacing="3">BIFOLD</text></svg>`,
+    wallet2: `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><rect x="10" y="28" width="110" height="80" rx="5" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><path d="M10 68 L120 68" stroke="rgba(201,168,76,.14)" stroke-width=".7"/><rect x="18" y="36" width="94" height="26" rx="3" fill="rgba(201,168,76,.07)"/><circle cx="116" cy="66" r="6" fill="none" stroke="rgba(201,168,76,.22)" stroke-width=".9"/><rect x="18" y="74" width="28" height="20" rx="2" fill="rgba(201,168,76,.06)" stroke="rgba(201,168,76,.1)" stroke-width=".6"/><rect x="52" y="74" width="28" height="20" rx="2" fill="rgba(201,168,76,.05)" stroke="rgba(201,168,76,.08)" stroke-width=".6"/><rect x="86" y="74" width="28" height="20" rx="2" fill="rgba(201,168,76,.04)" stroke="rgba(201,168,76,.07)" stroke-width=".6"/><text x="65" y="130" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(201,168,76,.2)" letter-spacing="3">ZIP LONG</text></svg>`,
+    card:    `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><rect x="20" y="45" width="90" height="70" rx="5" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><rect x="20" y="45" width="90" height="28" rx="5" fill="rgba(201,168,76,.08)" stroke="rgba(201,168,76,.14)" stroke-width=".7"/><line x1="20" y1="73" x2="110" y2="73" stroke="rgba(201,168,76,.12)" stroke-width=".7"/><rect x="30" y="80" width="32" height="24" rx="2" fill="rgba(201,168,76,.06)" stroke="rgba(201,168,76,.1)" stroke-width=".6"/><rect x="70" y="80" width="28" height="11" rx="2" fill="rgba(201,168,76,.05)"/><rect x="70" y="95" width="20" height="8" rx="1" fill="rgba(201,168,76,.04)"/></svg>`,
+    tote:    `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><path d="M22 68 L15 145 L115 145 L108 68 Z" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><path d="M44 68 C44 44 86 44 86 68" fill="none" stroke="rgba(201,168,76,.22)" stroke-width="1.8"/><rect x="15" y="66" width="100" height="10" rx="2" fill="rgba(201,168,76,.08)" stroke="rgba(201,168,76,.14)" stroke-width=".7"/><rect x="46" y="96" width="38" height="24" rx="3" fill="rgba(201,168,76,.06)" stroke="rgba(201,168,76,.12)" stroke-width=".7"/><circle cx="65" cy="108" r="5" fill="none" stroke="rgba(201,168,76,.22)" stroke-width=".9"/></svg>`,
+    sling:   `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><rect x="28" y="42" width="74" height="100" rx="9" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><path d="M58 42 C58 26 94 22 98 42" fill="none" stroke="rgba(201,168,76,.2)" stroke-width="1.4"/><rect x="40" y="60" width="50" height="32" rx="3" fill="rgba(201,168,76,.07)" stroke="rgba(201,168,76,.12)" stroke-width=".7"/><rect x="46" y="102" width="38" height="22" rx="3" fill="rgba(201,168,76,.05)" stroke="rgba(201,168,76,.09)" stroke-width=".6"/><circle cx="65" cy="113" r="6" fill="none" stroke="rgba(201,168,76,.2)" stroke-width=".9"/></svg>`,
+    phone:   `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><rect x="26" y="15" width="78" height="140" rx="13" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><rect x="32" y="21" width="66" height="128" rx="9" fill="rgba(201,168,76,.05)" stroke="rgba(201,168,76,.09)" stroke-width=".6"/><rect x="40" y="30" width="50" height="84" rx="4" fill="rgba(201,168,76,.06)" stroke="rgba(201,168,76,.1)" stroke-width=".6"/><circle cx="65" cy="135" r="6" fill="none" stroke="rgba(201,168,76,.18)" stroke-width=".9"/><line x1="52" y1="25" x2="78" y2="25" stroke="rgba(201,168,76,.18)" stroke-width=".9" stroke-linecap="round"/></svg>`,
+    phone2:  `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><rect x="20" y="12" width="90" height="146" rx="15" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><rect x="26" y="18" width="78" height="134" rx="11" fill="rgba(201,168,76,.05)"/><rect x="36" y="30" width="58" height="92" rx="4" fill="rgba(201,168,76,.07)" stroke="rgba(201,168,76,.1)" stroke-width=".6"/><circle cx="65" cy="142" r="6" fill="none" stroke="rgba(201,168,76,.18)" stroke-width=".9"/></svg>`,
+    camera:  `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><circle cx="65" cy="75" r="44" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><circle cx="65" cy="75" r="32" fill="rgba(201,168,76,.06)" stroke="rgba(201,168,76,.14)" stroke-width=".9"/><circle cx="65" cy="75" r="20" fill="rgba(201,168,76,.08)" stroke="rgba(201,168,76,.18)" stroke-width=".9"/><circle cx="65" cy="75" r="8" fill="rgba(201,168,76,.14)"/><rect x="23" y="32" width="20" height="14" rx="3" fill="rgba(201,168,76,.09)" stroke="rgba(201,168,76,.14)" stroke-width=".6"/></svg>`,
+    strap:   `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><rect x="46" y="18" width="38" height="134" rx="9" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><rect x="52" y="24" width="26" height="122" rx="6" fill="rgba(201,168,76,.07)"/><line x1="46" y1="58" x2="84" y2="58" stroke="rgba(201,168,76,.14)" stroke-width=".9"/><line x1="46" y1="85" x2="84" y2="85" stroke="rgba(201,168,76,.14)" stroke-width=".9"/><line x1="46" y1="112" x2="84" y2="112" stroke="rgba(201,168,76,.14)" stroke-width=".9"/><rect x="52" y="57" width="26" height="29" rx="2" fill="rgba(201,168,76,.09)" stroke="rgba(201,168,76,.16)" stroke-width=".6"/></svg>`,
+    airpods: `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><rect x="28" y="22" width="74" height="96" rx="22" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><rect x="34" y="28" width="62" height="42" rx="16" fill="rgba(201,168,76,.07)" stroke="rgba(201,168,76,.12)" stroke-width=".7"/><circle cx="65" cy="84" r="14" fill="none" stroke="rgba(201,168,76,.18)" stroke-width=".9"/><circle cx="65" cy="84" r="6" fill="rgba(201,168,76,.12)"/></svg>`,
+    airmax:  `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><ellipse cx="65" cy="52" rx="52" ry="30" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><rect x="18" y="80" width="94" height="62" rx="9" fill="rgba(201,168,76,.06)" stroke="rgba(201,168,76,.12)" stroke-width=".9"/><line x1="18" y1="52" x2="18" y2="82" stroke="rgba(201,168,76,.18)" stroke-width="1.5"/><line x1="112" y1="52" x2="112" y2="82" stroke="rgba(201,168,76,.18)" stroke-width="1.5"/></svg>`,
+    belt:    `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><rect x="8" y="73" width="114" height="24" rx="4" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><rect x="8" y="77" width="114" height="16" rx="2" fill="rgba(201,168,76,.07)"/><rect x="10" y="76" width="24" height="18" rx="3" fill="rgba(201,168,76,.12)" stroke="rgba(201,168,76,.22)" stroke-width=".9"/><rect x="14" y="80" width="16" height="10" rx="1" fill="rgba(201,168,76,.06)"/><circle cx="50" cy="85" r="2.5" fill="rgba(201,168,76,.2)"/><circle cx="62" cy="85" r="2.5" fill="rgba(201,168,76,.18)"/><circle cx="74" cy="85" r="2.5" fill="rgba(201,168,76,.15)"/></svg>`,
+    watch:   `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><rect x="46" y="12" width="38" height="146" rx="7" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><rect x="52" y="18" width="26" height="134" rx="4" fill="rgba(201,168,76,.07)"/><circle cx="65" cy="85" r="20" fill="rgba(201,168,76,.07)" stroke="rgba(201,168,76,.2)" stroke-width=".9"/><circle cx="65" cy="85" r="13" fill="rgba(201,168,76,.05)" stroke="rgba(201,168,76,.14)" stroke-width=".6"/><line x1="65" y1="76" x2="65" y2="85" stroke="rgba(201,168,76,.28)" stroke-width="1.2"/><line x1="65" y1="85" x2="72" y2="85" stroke="rgba(201,168,76,.22)" stroke-width=".9"/></svg>`,
+    key:     `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><circle cx="65" cy="50" r="26" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><circle cx="65" cy="50" r="13" fill="none" stroke="rgba(201,168,76,.18)" stroke-width=".9"/><rect x="56" y="72" width="18" height="66" rx="4" fill="none" stroke="rgba(201,168,76,.22)" stroke-width="1.2"/><rect x="56" y="94" width="18" height="9" rx="1" fill="rgba(201,168,76,.06)"/><rect x="64" y="108" width="12" height="8" rx="1" fill="rgba(201,168,76,.05)"/></svg>`,
+    passport:`<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><rect x="20" y="16" width="90" height="138" rx="7" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><rect x="26" y="22" width="78" height="126" rx="4" fill="rgba(201,168,76,.05)"/><circle cx="65" cy="65" r="24" fill="none" stroke="rgba(201,168,76,.18)" stroke-width=".9"/><circle cx="65" cy="65" r="15" fill="rgba(201,168,76,.07)" stroke="rgba(201,168,76,.12)" stroke-width=".6"/><rect x="34" y="102" width="62" height="5" rx="1" fill="rgba(201,168,76,.12)"/><rect x="34" y="113" width="48" height="5" rx="1" fill="rgba(201,168,76,.09)"/><rect x="34" y="124" width="54" height="5" rx="1" fill="rgba(201,168,76,.07)"/></svg>`,
+    laptop:  `<svg width="${size}" height="${size*1.3}" viewBox="0 0 130 170"><rect x="10" y="38" width="110" height="84" rx="6" fill="none" stroke="rgba(201,168,76,.25)" stroke-width="1.5"/><rect x="16" y="44" width="98" height="72" rx="3" fill="rgba(201,168,76,.07)"/><rect x="4" y="120" width="122" height="11" rx="3" fill="rgba(201,168,76,.09)" stroke="rgba(201,168,76,.14)" stroke-width=".6"/><line x1="48" y1="131" x2="82" y2="131" stroke="rgba(201,168,76,.22)" stroke-width="1.4"/></svg>`,
+  };
+  return svgs[key] || svgs.wallet;
+}
+
+// Map category → SVG key
+export function getSVGKeyForCategory(category) {
+  const map = {
+    'vi':        'wallet',
+    'tui':       'tote',
+    'op-lung':   'phone',
+    'op-camera': 'camera',
+    'airpods':   'airpods',
+    'day-lung':  'belt',
+    'phu-kien':  'passport',
+  };
+  return map[category] || 'wallet';
+}
