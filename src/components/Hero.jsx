@@ -15,12 +15,12 @@ export default function Hero() {
           Sản phẩm da thủ công độc bản — ví, túi xách, ốp điện thoại, ốp camera và hộp AirPods.
           Mỗi chiếc là một tác phẩm riêng biệt.
         </p>
-        <div>
-          <a href="#catalog" className="btn-primary">Xem bộ sưu tập</a>
-          <a href="https://zalo.me/0382152305" target="_blank" rel="noreferrer" className="btn-outline">
-            Đặt hàng riêng
-          </a>
-        </div>
+  <div class="hero-btns">
+  <a href="#catalog" class="btn-primary">Xem bộ sưu tập</a>
+  <a href="https://zalo.me/0382152305" target="_blank" rel="noreferrer" class="btn-outline">
+    Đặt hàng riêng
+  </a>
+</div>
       </div>
     </section>
   );

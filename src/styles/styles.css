@@ -32,7 +32,6 @@ nav {
   letter-spacing: 0.1em;
   color: var(--gold);
   text-decoration: none;
-  text-transform: uppercase;
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
@@ -61,6 +60,38 @@ nav {
 .btn-primary:hover{background:var(--gold-light);border-color:var(--gold-light)}
 .btn-outline{display:inline-block;padding:.9rem 2.5rem;border:1px solid rgba(201,168,76,.4);color:var(--gold);background:transparent;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;font-weight:600;text-decoration:none;cursor:pointer;transition:all .3s;margin-left:1rem}
 .btn-outline:hover{border-color:var(--gold);background:rgba(201,168,76,.05)}
+.hero-btns {
+  display: flex;
+  gap: 1rem;            /* Khoảng cách giữa 2 nút */
+  justify-content: center; /* Căn giữa nút */
+  align-items: center;
+  max-width: 500px;     /* Giới hạn độ rộng cụm nút */
+  margin: 0 auto;       /* Căn giữa cụm nút so với cha */
+}
+.btn-primary, .btn-outline {
+  flex: 1;              /* Quan trọng: Chia đều không gian 50/50 */
+  display: flex;        /* Dùng flex để căn giữa chữ bên trong */
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;  /* Không cho chữ xuống dòng */
+  min-height: 50px;     /* Chiều cao cố định để bằng nhau tuyệt đối */
+  margin: 0 !important; /* Xóa margin-left của .btn-outline cũ */
+  padding: 0 1rem;      /* Padding ngang vừa phải */
+}
+
+/* Responsive cho điện thoại nhỏ */
+@media (max-width: 480px) {
+  .hero-btns {
+    gap: 0.5rem;        /* Thu hẹp khoảng cách trên mobile */
+    padding: 0 1rem;    /* Thêm padding 2 bên màn hình */
+  }
+  
+  .btn-primary, .btn-outline {
+    font-size: 0.65rem; /* Giảm nhẹ cỡ chữ nếu nút bị hẹp */
+    letter-spacing: 0.1em; /* Giảm letter-spacing để chữ không bị tràn */
+  }
+}
+
 
 /* CATALOG */
 .catalog{background:var(--dark2);padding:6rem 4rem}
